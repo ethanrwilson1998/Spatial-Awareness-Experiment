@@ -5,6 +5,8 @@ using UnityEngine;
 public class Path : MonoBehaviour
 {
     [SerializeField] private Transform[] points;
+    [SerializeField] private bool interpolate;
+    [SerializeField] private float interpCutoff;
     private Line line;
     private int idx;
 
@@ -15,7 +17,38 @@ public class Path : MonoBehaviour
     {
         lr = GetComponent<LineRenderer>();
 
+        if (interpolate)
+        {
+            InterpolatePoints();
+        }
+
         NextLine();
+
+    }
+
+    private void InterpolatePoints()
+    {
+        bool didStuff = true;
+        while (didStuff)
+        {
+            didStuff = false;
+
+            List<Transform> pts = new List<Transform>();
+            for (int i = 0; i < points.Length - 1; i++)
+            {
+                pts.Add(points[i]);
+                if ((points[i].position - points[i + 1].position).magnitude > interpCutoff)
+                {
+                    Transform newPt = Instantiate(points[i].gameObject).transform;
+                    newPt.position = (points[i].position + points[i + 1].position) / 2f;
+                    pts.Add(newPt);
+                    didStuff = true;
+                }
+            }
+            pts.Add(points[points.Length - 1]);
+
+            points = pts.ToArray();
+        }
     }
 
     public bool NextLine()
@@ -42,5 +75,15 @@ public class Path : MonoBehaviour
     public float Distance(Vector3 point)
     {
         return line.Distance(point);
+    }
+
+    public float TotalDistance()
+    {
+        float d = 0;
+        for (int i = 0; i < points.Length - 1; i++)
+        {
+            d += (points[i].position - points[i + 1].position).magnitude;
+        }
+        return d;
     }
 }

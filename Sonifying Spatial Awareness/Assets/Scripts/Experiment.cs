@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Experiment : MonoBehaviour
 {
@@ -32,9 +34,17 @@ public class Experiment : MonoBehaviour
     [SerializeField] private VariableParameters pitchParams;
     [SerializeField] private VariableParameters intensityParams;
 
+    // data for analysis
+    private float pathDistance;
+    private float distanceTraveled;
+    private Vector3 lastPosition;
+
     private void Awake()
     {
         soundCue.transform.position = path.Next();
+
+        pathDistance = path.TotalDistance();
+        lastPosition = subject.position;
     }
 
     private void Update()
@@ -42,7 +52,11 @@ public class Experiment : MonoBehaviour
         float distanceFromNext = (path.Next() - subject.position).magnitude;
         if (distanceFromNext < distanceCutoff)
         {
-            path.NextLine();
+            if (!path.NextLine())
+            {
+                // experiment is done (they got to the last point)
+                FinishExperiment();
+            }
             soundCue.transform.position = path.Next();
         }
 
@@ -57,16 +71,55 @@ public class Experiment : MonoBehaviour
                 soundCue.SetTempo(value);
                 break;
             case ExperimentType.IncreasePitch:
-                value = tempoParams.low + Mathf.Lerp(0, tempoParams.high - tempoParams.low, distanceFromPath / tempoParams.effectiveMaxDistance);
+                value = pitchParams.low + Mathf.Lerp(0, pitchParams.high - pitchParams.low, distanceFromPath / pitchParams.effectiveMaxDistance);
                 soundCue.SetPitch(value);
                 break;
             case ExperimentType.IncreaseIntensity:
-                value = tempoParams.low + Mathf.Lerp(0, tempoParams.high - tempoParams.low, distanceFromPath / tempoParams.effectiveMaxDistance);
+                value = intensityParams.low + Mathf.Lerp(0, intensityParams.high - intensityParams.low, distanceFromPath / intensityParams.effectiveMaxDistance);
                 soundCue.SetIntensity(value);
                 break;
         }
 
 
+        distanceTraveled += (subject.position - lastPosition).magnitude;
+        lastPosition = subject.position;
+    }
 
+    private void FinishExperiment()
+    {
+        RecordResults();
+        SceneManager.LoadScene("Menu");
+    }
+
+    private void RecordResults()
+    {
+        string path = "TestResults/" + SubjectInfo.name;
+        string file = "/" + SceneManager.GetActiveScene().name + ".txt";
+
+        Directory.CreateDirectory(path);
+        StreamWriter writer = new StreamWriter(path + file, true);
+        writer.WriteLine("--------------------");
+        writer.WriteLine("");
+        writer.WriteLine("");
+
+        writer.WriteLine("Testing: " + SubjectInfo.name);
+        writer.WriteLine("");
+        writer.WriteLine("");
+
+        writer.WriteLine("Experiment: " + SceneManager.GetActiveScene().name);
+        writer.WriteLine("");
+        writer.WriteLine("");
+
+        writer.WriteLine("Path Distance: " + pathDistance);
+        writer.WriteLine("");
+        writer.WriteLine("");
+
+        writer.WriteLine("Subject's Distance Traveled: " + distanceTraveled);
+        writer.WriteLine("");
+        writer.WriteLine("");
+
+        writer.WriteLine("Subject's Efficiency: " + pathDistance / distanceTraveled);
+
+        writer.Close();
     }
 }

@@ -1,0 +1,39 @@
+Testing: TEST
+
+
+Experiment: BasicIntensity
+
+
+Path Distance: 51.99607
+
+
+Subject's Distance Traveled: 54.90414
+
+
+Subject's Efficiency: 0.9470336
+Testing: TEST
+
+
+Experiment: BasicIntensity
+
+
+Path Distance: 44.54271
+
+
+Subject's Distance Traveled: 79.95864
+
+
+Subject's Efficiency: 0.5570719
+Testing: TEST
+
+
+Experiment: BasicIntensity
+
+
+Path Distance: 51.99609
+
+
+Subject's Distance Traveled: 59.74151
+
+
+Subject's Efficiency: 0.8703511

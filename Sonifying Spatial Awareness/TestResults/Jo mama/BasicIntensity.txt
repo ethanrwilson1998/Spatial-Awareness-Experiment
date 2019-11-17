@@ -1,0 +1,16 @@
+--------------------
+
+
+Testing: Jo mama
+
+
+Experiment: BasicIntensity
+
+
+Path Distance: 51.99607
+
+
+Subject's Distance Traveled: 96.73721
+
+
+Subject's Efficiency: 0.5374981
