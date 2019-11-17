@@ -24,4 +24,9 @@ public class Movement : MonoBehaviour
 
         transform.position += movement;
     }
+
+    public float GetSpeed()
+    {
+        return speed;
+    }
 }

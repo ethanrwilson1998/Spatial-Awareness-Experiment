@@ -1,0 +1,34 @@
+--------------------
+11/17/2019 6:54:06 PM
+
+
+Testing: TEST
+Experiment: BasicPitch
+
+Ideal Distance: 51.99607
+Ideal Time: 207.9843
+
+
+Subject's Distance: 55.17253
+Subject's Time: 32.47937
+
+
+Path Efficiency: 0.9424267
+Time Efficiency: 6.403581
+--------------------
+11/17/2019 6:55:39 PM
+
+
+Testing: TEST
+Experiment: BasicPitch
+
+Ideal Distance: 51.99607
+Ideal Time: 12.99902
+
+
+Subject's Distance: 56.11153
+Subject's Time: 30.52448
+
+
+Path Efficiency: 0.9266557
+Time Efficiency: 0.4258555

@@ -39,12 +39,17 @@ public class Experiment : MonoBehaviour
     private float distanceTraveled;
     private Vector3 lastPosition;
 
+    private float pathTime;
+    private float timeTaken;
+
     private void Awake()
     {
         soundCue.transform.position = path.Next();
 
         pathDistance = path.TotalDistance();
         lastPosition = subject.position;
+
+        pathTime = pathDistance / subject.GetComponent<Movement>().GetSpeed();
     }
 
     private void Update()
@@ -83,6 +88,8 @@ public class Experiment : MonoBehaviour
 
         distanceTraveled += (subject.position - lastPosition).magnitude;
         lastPosition = subject.position;
+
+        timeTaken += Time.deltaTime;
     }
 
     private void FinishExperiment()
@@ -99,26 +106,26 @@ public class Experiment : MonoBehaviour
         Directory.CreateDirectory(path);
         StreamWriter writer = new StreamWriter(path + file, true);
         writer.WriteLine("--------------------");
+        writer.WriteLine(System.DateTime.Now);
         writer.WriteLine("");
         writer.WriteLine("");
 
         writer.WriteLine("Testing: " + SubjectInfo.name);
-        writer.WriteLine("");
-        writer.WriteLine("");
-
         writer.WriteLine("Experiment: " + SceneManager.GetActiveScene().name);
         writer.WriteLine("");
-        writer.WriteLine("");
 
-        writer.WriteLine("Path Distance: " + pathDistance);
-        writer.WriteLine("");
-        writer.WriteLine("");
-
-        writer.WriteLine("Subject's Distance Traveled: " + distanceTraveled);
+        writer.WriteLine("Ideal Distance: " + pathDistance);
+        writer.WriteLine("Ideal Time: " + pathTime);
         writer.WriteLine("");
         writer.WriteLine("");
 
-        writer.WriteLine("Subject's Efficiency: " + pathDistance / distanceTraveled);
+        writer.WriteLine("Subject's Distance: " + distanceTraveled);
+        writer.WriteLine("Subject's Time: " + timeTaken);
+        writer.WriteLine("");
+        writer.WriteLine("");
+
+        writer.WriteLine("Path Efficiency: " + 100 * pathDistance / distanceTraveled + "%");
+        writer.WriteLine("Time Efficiency: " + 100 * pathTime / timeTaken + "%");
 
         writer.Close();
     }
