@@ -42,6 +42,9 @@ public class Experiment : MonoBehaviour
     private float pathTime;
     private float timeTaken;
 
+
+    private Vector3 refVel;
+
     private void Awake()
     {
         soundCue.transform.position = path.Next();
@@ -62,8 +65,15 @@ public class Experiment : MonoBehaviour
                 // experiment is done (they got to the last point)
                 FinishExperiment();
             }
-            soundCue.transform.position = path.Next();
+            
         }
+
+        // smooth the soundcue transition so they can't hear it teleporting
+        soundCue.transform.position = Vector3.SmoothDamp(
+            soundCue.transform.position,
+            path.Next(),
+            ref refVel,
+            0.2f);
 
         float distanceFromPath = path.Distance(subject.position);
 

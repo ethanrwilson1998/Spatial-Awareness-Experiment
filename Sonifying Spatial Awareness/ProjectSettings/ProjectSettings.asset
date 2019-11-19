@@ -312,12 +312,11 @@ PlayerSettings:
     m_Devices:
     - Oculus
     - stereo
-    - Vuforia
     - None
   openGLRequireES31: 0
   openGLRequireES31AEP: 0
   openGLRequireES32: 0
-  vuforiaEnabled: 1
+  vuforiaEnabled: 0
   m_TemplateCustomTags: {}
   mobileMTRendering:
     Android: 1

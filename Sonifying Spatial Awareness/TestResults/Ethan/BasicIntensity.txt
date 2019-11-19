@@ -1,0 +1,17 @@
+--------------------
+11/18/2019 6:52:54 PM
+
+
+Testing: Ethan
+Experiment: BasicIntensity
+
+Ideal Distance: 51.99607
+Ideal Time: 12.99902
+
+
+Subject's Distance: 77.13908
+Subject's Time: 35.96315
+
+
+Path Efficiency: 67.40561%
+Time Efficiency: 36.14537%
