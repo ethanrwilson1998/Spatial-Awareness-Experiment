@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76872e41512f8c141bd94b645e337fff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blinded: 1
+  blinded: 0
   xSensitivity: 120
   ySensitivity: -90
 --- !u!1 &5168874931418943372
@@ -194,7 +194,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5168874931639361090}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

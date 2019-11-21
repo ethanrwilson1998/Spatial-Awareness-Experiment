@@ -1,0 +1,17 @@
+--------------------
+11/20/2019 7:37:59 PM
+
+
+Testing: Jack
+Experiment: BasicPitch
+
+Ideal Distance: 20.34767
+Ideal Time: 5.086916
+
+
+Subject's Distance: 304.7164
+Subject's Time: 183.5364
+
+
+Path Efficiency: 6.677574%
+Time Efficiency: 2.771612%

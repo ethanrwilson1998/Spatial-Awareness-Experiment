@@ -45,6 +45,8 @@ public class Experiment : MonoBehaviour
 
     private Vector3 refVel;
 
+    private StreamWriter raw;
+
     private void Awake()
     {
         soundCue.transform.position = path.Next();
@@ -53,6 +55,19 @@ public class Experiment : MonoBehaviour
         lastPosition = subject.position;
 
         pathTime = pathDistance / subject.GetComponent<Movement>().GetSpeed();
+
+        // csv file to record raw data
+        string filepath = "TestResults/" + SubjectInfo.name;
+        string csvFile = "/" + SceneManager.GetActiveScene().name + ".csv";
+        Directory.CreateDirectory(filepath);
+        if (File.Exists(filepath + csvFile))
+        {
+            File.Delete(filepath + csvFile);
+        }
+
+        raw = File.CreateText(filepath + csvFile);
+        raw.WriteLine("Time, Distance From Path, Angle From Next Waypoint");
+
     }
 
     private void Update()
@@ -100,21 +115,36 @@ public class Experiment : MonoBehaviour
         lastPosition = subject.position;
 
         timeTaken += Time.deltaTime;
+
+        // write to csv if they moved
+        if (distanceTraveled > 0)
+        {
+            // compute viewing angle
+            Vector3 forwardY = Vector3.Scale(subject.GetComponentInChildren<Camera>().transform.forward, new Vector3(0, 1, 0));
+            Vector3 toWaypointY = Vector3.Scale((path.Next() - subject.transform.position), new Vector3(0, 1, 0));
+
+            float angleOffset = Vector3.Angle(forwardY, toWaypointY);
+            raw.WriteLine(timeTaken + ", " + distanceFromPath + ", " + angleOffset);
+        }
     }
 
     private void FinishExperiment()
     {
         RecordResults();
+
+        raw.Close();
+
         SceneManager.LoadScene("Menu");
     }
 
     private void RecordResults()
     {
-        string path = "TestResults/" + SubjectInfo.name;
+        string filepath = "TestResults/" + SubjectInfo.name;
         string file = "/" + SceneManager.GetActiveScene().name + ".txt";
 
-        Directory.CreateDirectory(path);
-        StreamWriter writer = new StreamWriter(path + file, true);
+
+        Directory.CreateDirectory(filepath);
+        StreamWriter writer = new StreamWriter(filepath + file, true);
         writer.WriteLine("--------------------");
         writer.WriteLine(System.DateTime.Now);
         writer.WriteLine("");

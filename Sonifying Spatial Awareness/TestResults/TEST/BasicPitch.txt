@@ -49,3 +49,20 @@ Subject's Time: 30.03739
 
 Path Efficiency: 70.2671%
 Time Efficiency: 43.27612%
+--------------------
+11/20/2019 6:04:34 PM
+
+
+Testing: TEST
+Experiment: BasicPitch
+
+Ideal Distance: 51.99607
+Ideal Time: 12.99902
+
+
+Subject's Distance: 61.14399
+Subject's Time: 63.6676
+
+
+Path Efficiency: 85.03873%
+Time Efficiency: 20.41701%

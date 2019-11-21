@@ -34,7 +34,7 @@ public class CameraController : MonoBehaviour
         }
         else
         {
-            //Debug.Log(XRDevice.model);
+            Debug.Log(XRDevice.model);
         }
     }
 }

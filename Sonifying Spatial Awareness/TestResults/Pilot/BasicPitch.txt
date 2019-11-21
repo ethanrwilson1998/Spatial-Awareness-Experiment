@@ -1,0 +1,17 @@
+--------------------
+11/20/2019 7:30:22 PM
+
+
+Testing: Pilot
+Experiment: BasicPitch
+
+Ideal Distance: 20.34767
+Ideal Time: 5.086916
+
+
+Subject's Distance: 671.3723
+Subject's Time: 551.4126
+
+
+Path Efficiency: 3.030758%
+Time Efficiency: 0.9225245%
