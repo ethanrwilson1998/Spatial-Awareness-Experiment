@@ -9,12 +9,18 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 7105e1bfa78bcda41aae7a4d71d41826
   - enabled: 1
-    path: Assets/Scenes/BasicIntensity.unity
+    path: Assets/Scenes/Basic.unity
     guid: 164c537ce9262e74abb327b40c72acd5
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/BasicPitch.unity
     guid: fd7e2e0ee85e09444afdc1dfcb93c400
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/BasicTempo.unity
     guid: 1b3c677bcf481454d9ae50c94421e57f
+  - enabled: 1
+    path: Assets/Scenes/Nature.unity
+    guid: d55d09685ba2bfc4a8c29bfe3b5f4d2b
+  - enabled: 1
+    path: Assets/Scenes/Industrial.unity
+    guid: ca2fdd20c4e525448b6168cc40d05f4b
   m_configObjects: {}

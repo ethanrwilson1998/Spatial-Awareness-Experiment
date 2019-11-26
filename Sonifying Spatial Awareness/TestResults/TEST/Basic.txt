@@ -1,0 +1,53 @@
+--------------------
+11/26/2019 12:17:43 PM
+
+
+Testing: TEST
+Experiment: IncreasePitch
+
+Ideal Distance: 34.32206
+Ideal Time: 8.580515
+
+
+Subject's Distance: 32.63471
+Subject's Time: 25.30045
+
+
+Path Efficiency: 105.1704%
+Time Efficiency: 33.91448%
+--------------------
+11/26/2019 12:37:21 PM
+
+
+Testing: TEST
+Experiment: DecreaseTempo
+Scene: Basic
+
+Direct Distance: 34.32206
+Ideal Time: 8.580515
+
+
+Subject's Distance: 32.86467
+Subject's Time: 12.59365
+
+
+Path Efficiency: 104.4345%
+Time Efficiency: 68.13365%
+--------------------
+11/26/2019 12:42:20 PM
+
+
+Testing: TEST
+Experiment: DecreaseTempo
+Scene: Basic
+
+Direct Distance: 34.32206
+Ideal Time: 8.580515
+
+
+Subject's Distance: 33.42629
+Subject's Time: 11.77095
+
+
+Path Efficiency: 102.6798%
+Time Efficiency: 72.89571%

@@ -16,13 +16,13 @@ public class Experiment : MonoBehaviour
     private float distanceFromPath;
 
     // Setting experiment type
-    [System.Serializable] private enum ExperimentType
+    [System.Serializable] public enum ExperimentType
     {
         DecreaseTempo,
         IncreasePitch,
-        IncreaseIntensity
+        DecreaseIntensity
     }
-    [SerializeField] private ExperimentType type;
+    private ExperimentType type;
 
     [System.Serializable] private struct VariableParameters
     {
@@ -49,6 +49,9 @@ public class Experiment : MonoBehaviour
 
     private void Awake()
     {
+        type = SubjectInfo.testType;
+
+
         soundCue.transform.position = path.Next();
 
         pathDistance = path.TotalDistance();
@@ -79,6 +82,7 @@ public class Experiment : MonoBehaviour
             {
                 // experiment is done (they got to the last point)
                 FinishExperiment();
+                return;
             }
             
         }
@@ -104,8 +108,8 @@ public class Experiment : MonoBehaviour
                 value = pitchParams.low + Mathf.Lerp(0, pitchParams.high - pitchParams.low, distanceFromPath / pitchParams.effectiveMaxDistance);
                 soundCue.SetPitch(value);
                 break;
-            case ExperimentType.IncreaseIntensity:
-                value = intensityParams.low + Mathf.Lerp(0, intensityParams.high - intensityParams.low, distanceFromPath / intensityParams.effectiveMaxDistance);
+            case ExperimentType.DecreaseIntensity:
+                value = intensityParams.high - Mathf.Lerp(0, intensityParams.high - intensityParams.low, distanceFromPath / intensityParams.effectiveMaxDistance);
                 soundCue.SetIntensity(value);
                 break;
         }
@@ -151,10 +155,11 @@ public class Experiment : MonoBehaviour
         writer.WriteLine("");
 
         writer.WriteLine("Testing: " + SubjectInfo.name);
-        writer.WriteLine("Experiment: " + SceneManager.GetActiveScene().name);
+        writer.WriteLine("Experiment: " + type.ToString());
+        writer.WriteLine("Scene: " + SceneManager.GetActiveScene().name);
         writer.WriteLine("");
 
-        writer.WriteLine("Ideal Distance: " + pathDistance);
+        writer.WriteLine("Direct Distance: " + pathDistance);
         writer.WriteLine("Ideal Time: " + pathTime);
         writer.WriteLine("");
         writer.WriteLine("");

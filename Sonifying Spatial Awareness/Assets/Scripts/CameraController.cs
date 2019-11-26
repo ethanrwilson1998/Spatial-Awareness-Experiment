@@ -22,6 +22,9 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
+        // don't allow vr device to offset the camera
+        transform.localPosition = new Vector3(0, 1.5f, 0);
+
         if (!XRDevice.isPresent)
         {
             // camera rotations

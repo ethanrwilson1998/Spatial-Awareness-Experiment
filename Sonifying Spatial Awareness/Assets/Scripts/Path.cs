@@ -86,4 +86,14 @@ public class Path : MonoBehaviour
         }
         return d;
     }
+
+    public int GetNumPoints()
+    {
+        return points.Length;
+    }
+
+    public int GetIndex()
+    {
+        return idx;
+    }
 }

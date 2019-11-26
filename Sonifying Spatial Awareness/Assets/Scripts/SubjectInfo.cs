@@ -5,4 +5,5 @@ using UnityEngine;
 public static class SubjectInfo
 {
     public static string name = "TEST";
+    public static Experiment.ExperimentType testType;
 }

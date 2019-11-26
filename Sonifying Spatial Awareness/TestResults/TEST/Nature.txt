@@ -1,0 +1,35 @@
+--------------------
+11/26/2019 12:23:04 PM
+
+
+Testing: TEST
+Experiment: DecreaseTempo
+
+Direct Distance: 49.09339
+Ideal Time: 12.27335
+
+
+Subject's Distance: 47.71487
+Subject's Time: 21.18946
+
+
+Path Efficiency: 102.8891%
+Time Efficiency: 57.92196%
+--------------------
+11/26/2019 12:41:56 PM
+
+
+Testing: TEST
+Experiment: DecreaseIntensity
+Scene: Nature
+
+Direct Distance: 49.09339
+Ideal Time: 12.27335
+
+
+Subject's Distance: 47.62979
+Subject's Time: 17.63269
+
+
+Path Efficiency: 103.0729%
+Time Efficiency: 69.60564%
