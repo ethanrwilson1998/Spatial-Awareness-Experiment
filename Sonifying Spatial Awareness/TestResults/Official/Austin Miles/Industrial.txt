@@ -1,0 +1,18 @@
+--------------------
+11/26/2019 4:21:19 PM
+
+
+Testing: Austin Miles
+Experiment: IncreasePitch
+Scene: Industrial
+
+Direct Distance: 25.09031
+Ideal Time: 6.272576
+
+
+Subject's Distance: 53.82299
+Subject's Time: 28.28692
+
+
+Path Efficiency: 46.61634%
+Time Efficiency: 22.17483%

@@ -1,0 +1,18 @@
+--------------------
+11/26/2019 4:48:13 PM
+
+
+Testing: Max
+Experiment: DecreaseIntensity
+Scene: Industrial
+
+Direct Distance: 25.09031
+Ideal Time: 6.272576
+
+
+Subject's Distance: 124.3389
+Subject's Time: 61.99501
+
+
+Path Efficiency: 20.17896%
+Time Efficiency: 10.11787%

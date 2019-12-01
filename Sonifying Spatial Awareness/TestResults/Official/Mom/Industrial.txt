@@ -1,0 +1,18 @@
+--------------------
+11/29/2019 5:24:41 PM
+
+
+Testing: Mom
+Experiment: DecreaseIntensity
+Scene: Industrial
+
+Direct Distance: 25.09031
+Ideal Time: 6.272576
+
+
+Subject's Distance: 37.92934
+Subject's Time: 35.06514
+
+
+Path Efficiency: 66.15012%
+Time Efficiency: 17.88835%

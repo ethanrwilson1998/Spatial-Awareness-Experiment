@@ -1,0 +1,18 @@
+--------------------
+11/29/2019 4:45:40 PM
+
+
+Testing: Bubba
+Experiment: DecreaseTempo
+Scene: Industrial
+
+Direct Distance: 25.09031
+Ideal Time: 6.272576
+
+
+Subject's Distance: 27.05622
+Subject's Time: 23.53236
+
+
+Path Efficiency: 92.73395%
+Time Efficiency: 26.65511%

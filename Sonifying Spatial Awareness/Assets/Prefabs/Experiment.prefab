@@ -47,16 +47,16 @@ MonoBehaviour:
   path: {fileID: 0}
   soundCue: {fileID: 0}
   distanceCutoff: 1
-  type: 2
   tempoParams:
     low: 0.1
     high: 1.5
-    effectiveMaxDistance: 5
+    effectiveMaxDistance: 15
   pitchParams:
     low: 0.8
-    high: 1.2
-    effectiveMaxDistance: 5
+    high: 1.3
+    effectiveMaxDistance: 10
   intensityParams:
-    low: 0.5
-    high: 3
-    effectiveMaxDistance: 5
+    low: 0.1
+    high: 1
+    effectiveMaxDistance: 10
+  next: {fileID: 0}

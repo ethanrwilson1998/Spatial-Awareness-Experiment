@@ -1,0 +1,18 @@
+--------------------
+11/26/2019 2:15:12 PM
+
+
+Testing: Will
+Experiment: IncreasePitch
+Scene: Industrial
+
+Direct Distance: 25.09031
+Ideal Time: 6.272576
+
+
+Subject's Distance: 58.32269
+Subject's Time: 68.80416
+
+
+Path Efficiency: 43.0198%
+Time Efficiency: 9.116566%

@@ -12,7 +12,10 @@ public class Experiment : MonoBehaviour
     [SerializeField] private SoundCue soundCue; // probably attached to next point or subject?
     // tweakable values
     [SerializeField] private float distanceCutoff;
-    
+
+
+    private Transform angleT;
+
     private float distanceFromPath;
 
     // Setting experiment type
@@ -33,6 +36,7 @@ public class Experiment : MonoBehaviour
     [SerializeField] private VariableParameters tempoParams;
     [SerializeField] private VariableParameters pitchParams;
     [SerializeField] private VariableParameters intensityParams;
+    [SerializeField] private Transform next;
 
     // data for analysis
     private float pathDistance;
@@ -50,7 +54,7 @@ public class Experiment : MonoBehaviour
     private void Awake()
     {
         type = SubjectInfo.testType;
-
+        angleT = new GameObject().transform;
 
         soundCue.transform.position = path.Next();
 
@@ -75,6 +79,9 @@ public class Experiment : MonoBehaviour
 
     private void Update()
     {
+        if (next)
+            next.position = path.Next();
+
         float distanceFromNext = (path.Next() - subject.position).magnitude;
         if (distanceFromNext < distanceCutoff)
         {
@@ -96,40 +103,58 @@ public class Experiment : MonoBehaviour
 
         float distanceFromPath = path.Distance(subject.position);
 
-        float value;
+        float value = 0f;
+        float numerator = 0f;
+
 
         switch (type)
         {
             case ExperimentType.DecreaseTempo:
-                value = tempoParams.high - Mathf.Lerp(0, tempoParams.high - tempoParams.low, distanceFromPath / tempoParams.effectiveMaxDistance);
+                numerator = Mathf.Clamp(distanceFromNext, 0.001f, tempoParams.effectiveMaxDistance);
+                value = tempoParams.high - Mathf.Lerp(0, tempoParams.high - tempoParams.low, numerator / tempoParams.effectiveMaxDistance);
                 soundCue.SetTempo(value);
                 break;
             case ExperimentType.IncreasePitch:
-                value = pitchParams.low + Mathf.Lerp(0, pitchParams.high - pitchParams.low, distanceFromPath / pitchParams.effectiveMaxDistance);
+                numerator = Mathf.Clamp(distanceFromNext, 0.001f, pitchParams.effectiveMaxDistance);
+                value = pitchParams.low + Mathf.Lerp(0, pitchParams.high - pitchParams.low, numerator / pitchParams.effectiveMaxDistance);
                 soundCue.SetPitch(value);
                 break;
             case ExperimentType.DecreaseIntensity:
-                value = intensityParams.high - Mathf.Lerp(0, intensityParams.high - intensityParams.low, distanceFromPath / intensityParams.effectiveMaxDistance);
+                numerator = Mathf.Clamp(distanceFromNext, 0.001f, intensityParams.effectiveMaxDistance);
+                value = intensityParams.high - Mathf.Lerp(0, intensityParams.high - intensityParams.low, numerator / intensityParams.effectiveMaxDistance);
                 soundCue.SetIntensity(value);
                 break;
         }
 
 
         distanceTraveled += (subject.position - lastPosition).magnitude;
-        lastPosition = subject.position;
 
         timeTaken += Time.deltaTime;
 
         // write to csv if they moved
-        if (distanceTraveled > 0)
+        //if ((subject.position - lastPosition).magnitude > 0.05f)
         {
             // compute viewing angle
-            Vector3 forwardY = Vector3.Scale(subject.GetComponentInChildren<Camera>().transform.forward, new Vector3(0, 1, 0));
-            Vector3 toWaypointY = Vector3.Scale((path.Next() - subject.transform.position), new Vector3(0, 1, 0));
+            Vector3 forwardY = Vector3.Scale(subject.GetComponentInChildren<Camera>().transform.eulerAngles, new Vector3(0, 1, 0));
 
-            float angleOffset = Vector3.Angle(forwardY, toWaypointY);
+            angleT.position = subject.transform.position;
+            angleT.LookAt(path.Next());
+
+
+
+            Vector3 toWaypointY = Vector3.Scale(angleT.eulerAngles, new Vector3(0, 1, 0));
+
+            float angleOffset = (forwardY - toWaypointY).y;
+            while (angleOffset > 180)
+                angleOffset -= 360;
+            while (angleOffset < -180)
+                angleOffset += 360;
+            Debug.Log(angleOffset);
             raw.WriteLine(timeTaken + ", " + distanceFromPath + ", " + angleOffset);
         }
+
+        lastPosition = subject.position;
+
     }
 
     private void FinishExperiment()

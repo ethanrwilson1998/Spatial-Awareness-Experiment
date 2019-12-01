@@ -1,0 +1,36 @@
+--------------------
+11/29/2019 4:44:38 PM
+
+
+Testing: Bubba
+Experiment: DecreaseIntensity
+Scene: Nature
+
+Direct Distance: 26.40864
+Ideal Time: 6.60216
+
+
+Subject's Distance: 27.63587
+Subject's Time: 34.36656
+
+
+Path Efficiency: 95.55929%
+Time Efficiency: 19.211%
+--------------------
+11/29/2019 4:46:09 PM
+
+
+Testing: Bubba
+Experiment: DecreaseTempo
+Scene: Nature
+
+Direct Distance: 26.40864
+Ideal Time: 6.60216
+
+
+Subject's Distance: 26.24179
+Subject's Time: 21.03751
+
+
+Path Efficiency: 100.6358%
+Time Efficiency: 31.3828%

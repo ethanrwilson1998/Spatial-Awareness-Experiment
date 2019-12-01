@@ -1,0 +1,18 @@
+--------------------
+11/29/2019 4:50:04 PM
+
+
+Testing: Chloe
+Experiment: DecreaseIntensity
+Scene: Nature
+
+Direct Distance: 26.40864
+Ideal Time: 6.60216
+
+
+Subject's Distance: 28.04111
+Subject's Time: 30.01725
+
+
+Path Efficiency: 94.17828%
+Time Efficiency: 21.99455%

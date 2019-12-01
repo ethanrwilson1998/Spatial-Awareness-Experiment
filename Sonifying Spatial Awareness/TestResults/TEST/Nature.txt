@@ -33,3 +33,39 @@ Subject's Time: 17.63269
 
 Path Efficiency: 103.0729%
 Time Efficiency: 69.60564%
+--------------------
+11/26/2019 2:02:01 PM
+
+
+Testing: TEST
+Experiment: DecreaseTempo
+Scene: Nature
+
+Direct Distance: 26.40864
+Ideal Time: 6.60216
+
+
+Subject's Distance: 25.01394
+Subject's Time: 11.06212
+
+
+Path Efficiency: 105.5757%
+Time Efficiency: 59.68259%
+--------------------
+11/26/2019 2:03:14 PM
+
+
+Testing: TEST
+Experiment: DecreaseTempo
+Scene: Nature
+
+Direct Distance: 26.40864
+Ideal Time: 6.60216
+
+
+Subject's Distance: 26.87446
+Subject's Time: 14.63149
+
+
+Path Efficiency: 98.26666%
+Time Efficiency: 45.12294%

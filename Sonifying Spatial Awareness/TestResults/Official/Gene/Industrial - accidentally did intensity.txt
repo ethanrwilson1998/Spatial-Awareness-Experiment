@@ -34,21 +34,3 @@ Subject's Time: 208.3941
 
 Path Efficiency: 4.412927%
 Time Efficiency: 3.009959%
---------------------
-11/26/2019 3:55:33 PM
-
-
-Testing: TEST
-Experiment: DecreaseIntensity
-Scene: Industrial
-
-Direct Distance: 25.09031
-Ideal Time: 6.272576
-
-
-Subject's Distance: 133.7315
-Subject's Time: 38.46345
-
-
-Path Efficiency: 18.76171%
-Time Efficiency: 16.30789%

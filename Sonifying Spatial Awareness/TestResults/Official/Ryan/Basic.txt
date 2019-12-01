@@ -1,0 +1,18 @@
+--------------------
+11/26/2019 4:33:15 PM
+
+
+Testing: Ryan
+Experiment: DecreaseTempo
+Scene: Basic
+
+Direct Distance: 34.32206
+Ideal Time: 8.580515
+
+
+Subject's Distance: 759.2486
+Subject's Time: 358.1861
+
+
+Path Efficiency: 4.52053%
+Time Efficiency: 2.395547%
